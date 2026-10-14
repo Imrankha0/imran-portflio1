@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imran Ali Shah | Video Editor & Website Developer</title>
+    <meta name="description" content="Imran Ali Shah is a Video Editor & Website Developer creating modern websites, engaging video content, and AI-powered visual experiences.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Imran Ali Shah">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Imran Ali Shah | Video Editor & Website Developer">
+    <meta property="og:description" content="Imran Ali Shah is a Video Editor & Website Developer creating modern websites, engaging video content, and AI-powered visual experiences.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Imran Ali Shah Portfolio">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Imran Ali Shah | Video Editor & Website Developer">
+    <meta name="twitter:description" content="Imran Ali Shah is a Video Editor & Website Developer creating modern websites, engaging video content, and AI-powered visual experiences.">
+
+    <!-- JSON-LD Structured Data for Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Imran Ali Shah",
+      "jobTitle": "Video Editor & Website Developer",
+      "knowsAbout": ["Website Development", "Video Editing", "AI Video Creation"],
+      "description": "Video Editor & Website Developer creating modern websites, engaging video content, and AI-powered visual experiences."
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Playfair Display (Editorial Headings) & Plus Jakarta Sans (Crisp Body UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#06090e',
+                        surface: '#0d1322',
+                        card: '#121a2d',
+                        'card-border': 'rgba(56, 189, 248, 0.12)',
+                        champagne: '#00f0ff',
+                        'champagne-hover': '#38bdf8',
+                        muted: '#8e9bb0',
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --champagne: #00f0ff;
+            --obsidian: #06090e;
+        }
+
+        body {
+            background-color: var(--obsidian);
+            color: #f5f5f7;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow & Grid Textures */
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px);
+            background-size: 36px 36px;
+        }
+
+        .champagne-gradient-text {
+            background: linear-gradient(135deg, #ffffff 20%, #00f0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 25px -5px rgba(0, 240, 255, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #06090e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+
+        /* Custom Cursor Styling for Desktop */
+        @media (min-width: 1024px) {
+            body.custom-cursor-active {
+                cursor: none;
+            }
+            body.custom-cursor-active a, 
+            body.custom-cursor-active button {
+                cursor: none;
+            }
+        }
+
+        #cursor-dot, #cursor-ring {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            z-index: 9999;
+            transition: opacity 0.3s ease, transform 0.15s ease-out;
+            opacity: 0;
+        }
+
+        #cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00f0ff;
+            box-shadow: 0 0 10px #00f0ff;
+        }
+
+        #cursor-ring {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(0, 240, 255, 0.5);
+            transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, transform 0.1s ease-out;
+        }
+
+        #cursor-ring.cursor-expanded {
+            width: 58px;
+            height: 58px;
+            background-color: rgba(0, 240, 255, 0.08);
+            border-color: #00f0ff;
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-element.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Accessible Focus Outline */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #00f0ff;
+            outline-offset: 4px;
+        }
+
+        /* Respect Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-element {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            #cursor-dot, #cursor-ring {
+                display: none !important;
+            }
+            body {
+                cursor: auto !important;
+            }
+            a, button {
+                cursor: pointer !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-neutral-100 selection:bg-champagne selection:text-obsidian antialiased relative">
+
+    <!-- Custom Cursor Canvas Elements (Desktop) -->
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 z-50 transition-all duration-75 w-0" aria-hidden="true"></div>
+
+                        surface: '#121216',
+                        card: '#18181f',
+                        'card-border': 'rgba(255, 255, 255, 0.08)',
+                        champagne: '#e2b168',
+                        'champagne-hover': '#f0c47f',
+                        muted: '#8e8e93',
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --champagne: #e2b168;
+            --obsidian: #0a0a0c;
+        }
+
+        body {
+            background-color: var(--obsidian);
+            color: #f5f5f7;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow & Grid Textures */
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(226, 177, 104, 0.08) 1px, transparent 1px);
+            background-size: 36px 36px;
+        }
+
+        .champagne-gradient-text {
+            background: linear-gradient(135deg, #ffffff 20%, #e2b168 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow:hover {
+            border-color: rgba(226, 177, 104, 0.4);
+            box-shadow: 0 0 25px -5px rgba(226, 177, 104, 0.15);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #26262e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e2b168;
+        }
+
+        /* Custom Cursor Styling for Desktop */
+        @media (min-width: 1024px) {
+            body.custom-cursor-active {
+                cursor: none;
+            }
+            body.custom-cursor-active a, 
+            body.custom-cursor-active button {
+                cursor: none;
+            }
+        }
+
+        #cursor-dot, #cursor-ring {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            z-index: 9999;
+            transition: opacity 0.3s ease, transform 0.15s ease-out;
+            opacity: 0;
+        }
+
+        #cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #e2b168;
+        }
+
+        #cursor-ring {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(226, 177, 104, 0.5);
+            transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, transform 0.1s ease-out;
+        }
+
+        #cursor-ring.cursor-expanded {
+            width: 58px;
+            height: 58px;
+            background-color: rgba(226, 177, 104, 0.08);
+            border-color: #e2b168;
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-element.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Accessible Focus Outline */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #e2b168;
+            outline-offset: 4px;
+        }
+
+        /* Respect Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-element {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            #cursor-dot, #cursor-ring {
+                display: none !important;
+            }
+            body {
+                cursor: auto !important;
+            }
+            a, button {
+                cursor: pointer !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-neutral-100 selection:bg-champagne selection:text-obsidian antialiased relative">
+
+    <!-- Custom Cursor Canvas Elements (Desktop) -->
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-champagne to-amber-200 z-50 transition-all duration-75 w-0" aria-hidden="true"></div>
+
+    <!-- Header Navigation -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 py-5 px-6 md:px-12 backdrop-blur-md bg-obsidian/70 border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#home" class="group flex items-center space-x-3 text-left focus:outline-none" aria-label="Imran Ali Shah Home">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-card to-surface border border-white/10 flex items-center justify-center group-hover:border-champagne transition-colors duration-300">
+                    <span class="font-heading font-bold text-champagne text-lg">I</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-semibold tracking-wider text-base md:text-lg text-white group-hover:text-champagne transition-colors">IMRAN ALI SHAH</span>
+                    <span class="text-[10px] tracking-widest uppercase text-muted font-medium">Editor & Developer</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-300" aria-label="Main Navigation">
+                <a href="#about" class="hover:text-champagne transition-colors py-1">About</a>
+                <a href="#services" class="hover:text-champagne transition-colors py-1">Services</a>
+                <a href="#projects" class="hover:text-champagne transition-colors py-1">Projects</a>
+                <a href="#skills" class="hover:text-champagne transition-colors py-1">Skills</a>
+                <a href="#process" class="hover:text-champagne transition-colors py-1">Process</a>
+                <a href="#contact" class="hover:text-champagne transition-colors py-1">Contact</a>
+            </nav>
+
+            <!-- Desktop Navigation Action CTA -->
+            <div class="hidden md:block">
+                <a href="https://wa.me/923494100322" target="_blank" rel="noopener noreferrer" 
+                   class="magnetic-btn inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-card border border-white/10 text-xs font-semibold tracking-wider uppercase text-white hover:border-champagne hover:text-champagne transition-all duration-300"
+                   aria-label="Chat with Imran Ali Shah on WhatsApp">
+                    <!-- Official WhatsApp SVG Icon -->
+                    <svg class="w-4 h-4 fill-current text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                    </svg>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-neutral-300 hover:text-champagne focus:outline-none p-2" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobile-nav">
+                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-nav" class="hidden md:hidden absolute top-full left-0 w-full bg-surface/95 backdrop-blur-xl border-b border-white/10 px-6 py-8 shadow-2xl">
+            <nav class="flex flex-col space-y-5 text-center text-base font-medium text-neutral-200">
+                <a href="#about" class="mobile-link hover:text-champagne transition-colors">About</a>
+                <a href="#services" class="mobile-link hover:text-champagne transition-colors">Services</a>
+                <a href="#projects" class="mobile-link hover:text-champagne transition-colors">Projects</a>
+                <a href="#skills" class="mobile-link hover:text-champagne transition-colors">Skills</a>
+                <a href="#process" class="mobile-link hover:text-champagne transition-colors">Process</a>
+                <a href="#contact" class="mobile-link hover:text-champagne transition-colors">Contact</a>
+                <div class="pt-4 border-t border-white/10 flex justify-center">
+                    <a href="https://wa.me/923494100322" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-champagne text-obsidian font-bold text-xs uppercase tracking-wider hover:bg-champagne-hover transition-colors"
+                       aria-label="Chat with Imran Ali Shah on WhatsApp">
+                        <svg class="w-4 h-4 fill-current text-obsidian" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                        </svg>
+                        <span>Chat on WhatsApp</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen relative flex items-center justify-center pt-28 pb-16 px-6 md:px-12 bg-grid-pattern overflow-hidden">
+        
+        <!-- Subtle Radial Light Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-champagne/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+            
+            <!-- Hero Text Content (Left Column) -->
+            <div class="lg:col-span-7 flex flex-col space-y-6 text-center lg:text-left order-2 lg:order-1">
+                <div class="reveal-element inline-flex items-center justify-center lg:justify-start space-x-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs uppercase tracking-widest text-champagne font-semibold bg-champagne/10 px-3 py-1 rounded-full border border-champagne/20">
+                        Available for Projects & Work
+                    </span>
+                </div>
+
+                <h1 class="reveal-element font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
+                    IMRAN ALI SHAH
+                </h1>
+
+                <p class="reveal-element font-heading italic text-xl sm:text-2xl text-champagne tracking-wide">
+                    Video Editor & Website Developer
+                </p>
+
+                <p class="reveal-element text-base sm:text-lg text-neutral-400 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                    Building modern websites, engaging video content, and AI-powered visual experiences.
+                </p>
+
+                <!-- Action CTAs -->
+                <div class="reveal-element pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-5">
+                    <a href="#projects" class="magnetic-btn w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full bg-champagne text-obsidian font-bold text-sm tracking-widest uppercase hover:bg-champagne-hover transition-all duration-300 shadow-lg shadow-champagne/10">
+                        <span>View My Work</span>
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+
+                    <a href="https://wa.me/923494100322" target="_blank" rel="noopener noreferrer" 
+                       class="magnetic-btn w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-4 rounded-full bg-card border border-white/10 text-white hover:border-champagne hover:text-champagne font-semibold text-sm tracking-wider uppercase transition-all duration-300"
+                       aria-label="Chat with Imran Ali Shah on WhatsApp">
+                        <svg class="w-5 h-5 fill-current text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                        </svg>
+                        <span>Chat on WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Image Holder (Right Column) -->
+            <div class="lg:col-span-5 flex justify-center order-1 lg:order-2 reveal-element">
+                <div class="relative group">
+                    
+                    <!-- Decorative Outer Ring -->
+                    <div class="absolute -inset-1 rounded-full bg-gradient-to-tr from-champagne/40 via-transparent to-champagne/10 blur-sm group-hover:blur-md transition-all duration-500"></div>
+
+                    <!-- Profile Image Container -->
+                    <div class="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-2 bg-card border border-white/10 overflow-hidden gold-border-glow transition-all duration-500 flex items-center justify-center">
+                        
+                        <!-- High Quality Portrait Frame Vector / Image Placeholder -->
+                        <div class="w-full h-full rounded-full bg-surface border border-white/5 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                            
+                            <!-- Stylized Creator Silhouette & Badge Graphic -->
+                            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-obsidian border border-champagne/30 flex items-center justify-center mb-4 text-champagne shadow-inner">
+                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                </svg>
+                            </div>
+                            
+                            <span class="font-heading text-sm text-neutral-200 font-medium">IMRAN ALI SHAH</span>
+                            <span class="text-[11px] text-champagne tracking-wider uppercase mt-1">Creator & Developer</span>
+
+                            <!-- Decorative Dual Badges -->
+                            <div class="absolute bottom-4 left-0 w-full flex justify-center space-x-2">
+                                <span class="bg-obsidian/90 text-neutral-400 text-[10px] px-2.5 py-1 rounded-full border border-white/10 flex items-center space-x-1">
+                                    <svg class="w-3 h-3 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    <span>Video</span>
+                                </span>
+                                <span class="bg-obsidian/90 text-neutral-400 text-[10px] px-2.5 py-1 rounded-full border border-white/10 flex items-center space-x-1">
+                                    <svg class="w-3 h-3 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                    <span>Code</span>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 md:px-12 bg-surface border-y border-card-border relative">
+        <div class="max-w-5xl mx-auto">
+            
+            <div class="reveal-element text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-champagne font-semibold">01 / Profile</span>
+                <h2 class="font-heading text-3xl sm:text-4xl text-white font-bold mt-2">Crafting Visuals & Code</h2>
+                <div class="w-12 h-[2px] bg-champagne mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+                <div class="md:col-span-7 space-y-6 text-neutral-300 font-light text-base leading-relaxed reveal-element">
+                    <p class="text-lg text-white font-normal">
+                        I am <strong class="text-champagne font-semibold">Imran Ali Shah</strong>, a dedicated Video Editor and Website Developer focused on producing elegant, high-impact digital experiences.
+                    </p>
+                    <p>
+                        Currently building my professional portfolio, I combine clean front-end web development with story-driven video editing and emerging AI video workflows.
+                    </p>
+                    <p>
+                        My focus is on authentic craftsmanship: delivering intuitive user interfaces, polished video sequences, and seamless visual storytelling for every brand project.
+                    </p>
+
+                    <div class="pt-4 grid grid-cols-2 gap-4 border-t border-white/10 text-xs text-neutral-400 uppercase tracking-wider font-semibold">
+                        <div>
+                            <span class="text-champagne block text-lg font-bold">Web & Video</span>
+                            Core Disciplines
+                        </div>
+                        <div>
+                            <span class="text-champagne block text-lg font-bold">100% Direct</span>
+                            WhatsApp Communication
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 reveal-element">
+                    <div class="bg-card p-8 rounded-2xl border border-white/10 relative overflow-hidden space-y-4">
+                        <div class="text-xs uppercase tracking-widest text-champagne font-semibold">Direct Contact</div>
+                        <h3 class="font-heading text-2xl text-white">Let's Connect Directly</h3>
+                        <p class="text-sm text-neutral-400 font-light">
+                            Have questions or a new project idea? Chat directly with me via WhatsApp.
+                        </p>
+                        <div class="pt-2">
+                            <a href="https://wa.me/923494100322" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center space-x-3 text-champagne font-semibold text-sm hover:underline"
+                               aria-label="Chat with Imran Ali Shah on WhatsApp">
+                                <span>WhatsApp: 0349 4100322</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 md:px-12 bg-obsidian relative">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="reveal-element text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-champagne font-semibold">02 / Expertise</span>
+                <h2 class="font-heading text-3xl sm:text-4xl text-white font-bold mt-2">Services Provided</h2>
+                <div class="w-12 h-[2px] bg-champagne mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="reveal-element bg-card p-8 rounded-2xl border border-white/10 gold-border-glow transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-surface border border-white/10 flex items-center justify-center text-champagne mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest text-muted font-mono">01</span>
+                        <h3 class="font-heading text-2xl text-white font-semibold mt-2 mb-4 group-hover:text-champagne transition-colors">Website Development</h3>
+                        <p class="text-sm text-neutral-400 leading-relaxed font-light">
+                            Crafting clean, responsive, and performance-driven websites using modern HTML, CSS, JavaScript, and framework utilities.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-white/5 text-xs text-neutral-500 font-medium uppercase tracking-wider">
+                        Responsive • Fast • Accessible
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="reveal-element bg-card p-8 rounded-2xl border border-white/10 gold-border-glow transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-surface border border-white/10 flex items-center justify-center text-champagne mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest text-muted font-mono">02</span>
+                        <h3 class="font-heading text-2xl text-white font-semibold mt-2 mb-4 group-hover:text-champagne transition-colors">Video Editing</h3>
+                        <p class="text-sm text-neutral-400 leading-relaxed font-light">
+                            Editing raw video footage into polished, engaging content with story-driven pacing, smooth transitions, and visual clarity.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-white/5 text-xs text-neutral-500 font-medium uppercase tracking-wider">
+                        Pacing • Storytelling • Rhythm
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="reveal-element bg-card p-8 rounded-2xl border border-white/10 gold-border-glow transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-surface border border-white/10 flex items-center justify-center text-champagne mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"></path></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest text-muted font-mono">03</span>
+                        <h3 class="font-heading text-2xl text-white font-semibold mt-2 mb-4 group-hover:text-champagne transition-colors">AI Video Creation</h3>
+                        <p class="text-sm text-neutral-400 leading-relaxed font-light">
+                            Leveraging generative AI tools and visual assets to build dynamic modern promotional materials and digital artwork.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-white/5 text-xs text-neutral-500 font-medium uppercase tracking-wider">
+                        Generative • Modern • Creative
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Selected Projects Section -->
+    <section id="projects" class="py-24 px-6 md:px-12 bg-surface border-t border-card-border relative">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="reveal-element text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-champagne font-semibold">03 / Portfolio</span>
+                <h2 class="font-heading text-3xl sm:text-4xl text-white font-bold mt-2">Selected Work</h2>
+                <div class="w-12 h-[2px] bg-champagne mx-auto mt-4"></div>
+            </div>
+
+            <div class="space-y-12">
+                
+                <!-- Project 01 -->
+                <div class="reveal-element bg-card rounded-2xl border border-white/10 p-8 md:p-10 gold-border-glow transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group">
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-xs uppercase font-mono tracking-widest text-champagne bg-champagne/10 px-3 py-1 rounded-full border border-champagne/20">Project 01</span>
+                            <span class="text-xs text-muted uppercase tracking-wider">Website Development</span>
+                        </div>
+                        <h3 class="font-heading text-2xl sm:text-3xl text-white font-bold group-hover:text-champagne transition-colors">
+                            California Hospital Dental Group — Premium Version
+                        </h3>
+                        <p class="text-sm text-neutral-400 font-light leading-relaxed">
+                            A refined healthcare web experience built for California Hospital Dental Group featuring sophisticated typography, clean clinical navigation, and responsive mobile optimization.
+                        </p>
+                        <div class="pt-4">
+                            <a href="https://california-hospital-dental-group-1.vercel.app/" target="_blank" rel="noopener noreferrer"
+                               class="magnetic-btn inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-champagne text-obsidian font-bold text-xs uppercase tracking-wider hover:bg-champagne-hover transition-all duration-300">
+                                <span>View Live Project</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-surface p-6 rounded-xl border border-white/5 flex flex-col justify-center items-center text-center space-y-3">
+                        <div class="w-16 h-16 rounded-full bg-obsidian border border-champagne/30 flex items-center justify-center text-champagne">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest text-neutral-400">Deployed on Vercel</span>
+                        <span class="text-xs text-champagne font-mono">Live Demo Accessible</span>
+                    </div>
+                </div>
+
+                <!-- Project 02 -->
+                <div class="reveal-element bg-card rounded-2xl border border-white/10 p-8 md:p-10 gold-border-glow transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group">
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-xs uppercase font-mono tracking-widest text-champagne bg-champagne/10 px-3 py-1 rounded-full border border-champagne/20">Project 02</span>
+                            <span class="text-xs text-muted uppercase tracking-wider">Website Development</span>
+                        </div>
+                        <h3 class="font-heading text-2xl sm:text-3xl text-white font-bold group-hover:text-champagne transition-colors">
+                            California Hospital Dental Group — Alternative Version
+                        </h3>
+                        <p class="text-sm text-neutral-400 font-light leading-relaxed">
+                            An alternative design iteration focusing on streamlined information architecture, high-contrast readability, and rapid asset load performance.
+                        </p>
+                        <div class="pt-4">
+                            <a href="https://california-hospital-dental-group.vercel.app/" target="_blank" rel="noopener noreferrer"
+                               class="magnetic-btn inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-champagne text-obsidian font-bold text-xs uppercase tracking-wider hover:bg-champagne-hover transition-all duration-300">
+                                <span>View Live Project</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-surface p-6 rounded-xl border border-white/5 flex flex-col justify-center items-center text-center space-y-3">
+                        <div class="w-16 h-16 rounded-full bg-obsidian border border-champagne/30 flex items-center justify-center text-champagne">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest text-neutral-400">Deployed on Vercel</span>
+                        <span class="text-xs text-champagne font-mono">Alternative Design</span>
+                    </div>
+                </div>
+
+                <!-- Project 03 -->
+                <div class="reveal-element bg-card rounded-2xl border border-white/10 p-8 md:p-10 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-xs uppercase font-mono tracking-widest text-neutral-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Project 03</span>
+                            <span class="text-xs text-muted uppercase tracking-wider">Website Development</span>
+                        </div>
+                        <h3 class="font-heading text-2xl sm:text-3xl text-white font-bold">
+                            Smile Shield Dental Clinic
+                        </h3>
+                        <p class="text-sm text-neutral-400 font-light leading-relaxed">
+                            A modern clinical portal project developed as part of my frontend web practice. Focused on patient layout flows and accessibility standards.
+                        </p>
+                        <div class="pt-2">
+                            <span class="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-neutral-400 bg-surface px-4 py-2 rounded-full border border-white/10">
+                                <span>Website Project</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-surface p-6 rounded-xl border border-white/5 flex flex-col justify-center items-center text-center space-y-3">
+                        <div class="w-16 h-16 rounded-full bg-obsidian border border-white/10 flex items-center justify-center text-neutral-400">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-widest text-neutral-400">Internal Project</span>
+                        <span class="text-xs text-neutral-500 font-mono">No Public URL</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 md:px-12 bg-obsidian relative">
+        <div class="max-w-5xl mx-auto">
+            
+            <div class="reveal-element text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-champagne font-semibold">04 / Capabilities</span>
+                <h2 class="font-heading text-3xl sm:text-4xl text-white font-bold mt-2">Technical Skills</h2>
+                <div class="w-12 h-[2px] bg-champagne mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="reveal-element bg-card p-8 rounded-2xl border border-white/10 text-center space-y-4 gold-border-glow transition-all">
+                    <div class="w-16 h-16 rounded-full bg-surface border border-champagne/30 mx-auto flex items-center justify-center text-champagne">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-white font-semibold">Website Development</h3>
+                    <p class="text-xs text-neutral-400 leading-relaxed font-light">
+                        Building clean, responsive HTML, CSS, JavaScript structures and functional portfolio layouts.
+                    </p>
+                </div>
+
+                <div class="reveal-element bg-card p-8 rounded-2xl border border-white/10 text-center space-y-4 gold-border-glow transition-all">
+                    <div class="w-16 h-16 rounded-full bg-surface border border-champagne/30 mx-auto flex items-center justify-center text-champagne">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-white font-semibold">Video Editing</h3>
+                    <p class="text-xs text-neutral-400 leading-relaxed font-light">
+                        Timeline editing, audio synchronization, graphic overlays, and visual sequencing.
+                    </p>
+                </div>
+
+                <div class="reveal-element bg-card p-8 rounded-2xl border border-white/10 text-center space-y-4 gold-border-glow transition-all">
+                    <div class="w-16 h-16 rounded-full bg-surface border border-champagne/30 mx-auto flex items-center justify-center text-champagne">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"></path></svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-white font-semibold">AI Video Creation</h3>
+                    <p class="text-xs text-neutral-400 leading-relaxed font-light">
+                        Exploring AI prompt engineering and generative tools for creative digital visual production.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Process Timeline Section -->
+    <section id="process" class="py-24 px-6 md:px-12 bg-surface border-t border-card-border relative">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="reveal-element text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-champagne font-semibold">05 / Methodology</span>
+                <h2 class="font-heading text-3xl sm:text-4xl text-white font-bold mt-2">Workflow Process</h2>
+                <div class="w-12 h-[2px] bg-champagne mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                
+                <div class="reveal-element bg-card p-6 rounded-xl border border-white/10 space-y-3 relative">
+                    <span class="font-mono text-xs text-champagne font-bold">01</span>
+                    <h3 class="font-heading text-lg text-white font-semibold">Discover</h3>
+                    <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                        Understanding key project requirements, audience expectations, and core visual goals.
+                    </p>
+                </div>
+
+                <div class="reveal-element bg-card p-6 rounded-xl border border-white/10 space-y-3 relative">
+                    <span class="font-mono text-xs text-champagne font-bold">02</span>
+                    <h3 class="font-heading text-lg text-white font-semibold">Design</h3>
+                    <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                        Structuring clean visual concepts, page layouts, and storyboards for video/web.
+                    </p>
+                </div>
+
+                <div class="reveal-element bg-card p-6 rounded-xl border border-white/10 space-y-3 relative">
+                    <span class="font-mono text-xs text-champagne font-bold">03</span>
+                    <h3 class="font-heading text-lg text-white font-semibold">Build</h3>
+                    <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                        Writing clean frontend code or editing high-quality video timeline cuts.
+                    </p>
+                </div>
+
+                <div class="reveal-element bg-card p-6 rounded-xl border border-white/10 space-y-3 relative">
+                    <span class="font-mono text-xs text-champagne font-bold">04</span>
+                    <h3 class="font-heading text-lg text-white font-semibold">Refine</h3>
+                    <p class="text-xs text-neutral-400 font-light leading-relaxed">
+                        Testing responsiveness, verifying accessibility, and polishing output details.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Final Contact Section -->
+    <section id="contact" class="py-28 px-6 md:px-12 bg-obsidian relative overflow-hidden">
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10 space-y-8">
+            <div class="reveal-element inline-flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-champagne"></span>
+                <span class="text-xs uppercase tracking-widest text-champagne font-semibold">06 / Get In Touch</span>
+            </div>
+
+            <h2 class="reveal-element font-heading text-3xl sm:text-5xl lg:text-6xl text-white font-bold tracking-tight">
+                Have a project in mind?
+            </h2>
+
+            <p class="reveal-element text-base sm:text-lg text-neutral-400 max-w-xl mx-auto font-light leading-relaxed">
+                Let's turn your idea into a modern digital experience. Contact me directly on WhatsApp to start a conversation.
+            </p>
+
+            <div class="reveal-element pt-6 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <!-- Primary WhatsApp CTA -->
+                <a href="https://wa.me/923494100322" target="_blank" rel="noopener noreferrer"
+                   class="magnetic-btn w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-4 rounded-full bg-champagne text-obsidian font-bold text-sm tracking-wider uppercase hover:bg-champagne-hover transition-all duration-300 shadow-xl shadow-champagne/10"
+                   aria-label="Chat with Imran Ali Shah on WhatsApp">
+                    <svg class="w-5 h-5 fill-current text-obsidian" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                    </svg>
+                    <span>WhatsApp: 0349 4100322</span>
+                </a>
+
+                <!-- Secondary Link -->
+                <a href="#projects" class="magnetic-btn w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full bg-card border border-white/10 text-white font-semibold text-sm tracking-wider uppercase hover:border-champagne hover:text-champagne transition-all duration-300">
+                    <span>View My Work</span>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Floating WhatsApp Quick Button -->
+    <a href="https://wa.me/923494100322" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group focus:outline-none"
+       aria-label="Chat with Imran Ali Shah on WhatsApp">
+        <svg class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 md:px-12 bg-surface border-t border-card-border text-xs text-neutral-400">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left space-y-1">
+                <span class="font-heading font-bold text-white text-base block">IMRAN ALI SHAH</span>
+                <span class="text-neutral-500">Video Editor & Website Developer</span>
+            </div>
+
+            <nav class="flex flex-wrap justify-center gap-6 font-medium text-neutral-300" aria-label="Footer Navigation">
+                <a href="#about" class="hover:text-champagne transition-colors">About</a>
+                <a href="#services" class="hover:text-champagne transition-colors">Services</a>
+                <a href="#projects" class="hover:text-champagne transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-champagne transition-colors">Skills</a>
+                <a href="#process" class="hover:text-champagne transition-colors">Process</a>
+                <a href="#contact" class="hover:text-champagne transition-colors">Contact</a>
+            </nav>
+
+            <div class="text-center md:text-right text-neutral-500">
+                <p>&copy; 2026 Imran Ali Shah. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (mobileBtn && mobileNav) {
+                mobileBtn.addEventListener('click', () => {
+                    const expanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+                    mobileBtn.setAttribute('aria-expanded', !expanded);
+                    mobileNav.classList.toggle('hidden');
+                    menuIconOpen.classList.toggle('hidden');
+                    menuIconClose.classList.toggle('hidden');
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileNav.classList.add('hidden');
+                        menuIconOpen.classList.remove('hidden');
+                        menuIconClose.classList.add('hidden');
+                        mobileBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            // 2. Scroll Progress Bar
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+                if (totalScroll > 0 && progressBar) {
+                    const currentProgress = (window.scrollY / totalScroll) * 100;
+                    progressBar.style.width = `${currentProgress}%`;
+                }
+            });
+
+            // 3. Scroll Reveal System using IntersectionObserver
+            const revealElements = document.querySelectorAll('.reveal-element');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    root: null,
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                revealElements.forEach(el => revealObserver.observe(el));
+            } else {
+                // Instantly display all if reduced motion or missing observer
+                revealElements.forEach(el => el.classList.add('revealed'));
+            }
+
+            // 4. Desktop Custom Cursor & Magnetic Interactions
+            const cursorDot = document.getElementById('cursor-dot');
+            const cursorRing = document.getElementById('cursor-ring');
+            const isDesktop = window.innerWidth >= 1024 && !window.matchMedia('(pointer: coarse)').matches;
+
+            if (isDesktop && !prefersReducedMotion && cursorDot && cursorRing) {
+                document.body.classList.add('custom-cursor-active');
+
+                let mouseX = 0, mouseY = 0;
+                let ringX = 0, ringY = 0;
+
+                window.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+
+                    cursorDot.style.opacity = '1';
+                    cursorRing.style.opacity = '1';
+                    cursorDot.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
+                });
+
+                // Smooth Trailing Outer Ring Animation Frame
+                const renderCursor = () => {
+                    ringX += (mouseX - ringX) * 0.15;
+                    ringY += (mouseY - ringY) * 0.15;
+                    cursorRing.style.transform = `translate3d(${ringX - 18}px, ${ringY - 18}px, 0)`;
+                    requestAnimationFrame(renderCursor);
+                };
+                requestAnimationFrame(renderCursor);
+
+                // Expand cursor over interactive targets
+                const interactiveTargets = document.querySelectorAll('a, button, .magnetic-btn');
+                interactiveTargets.forEach(target => {
+                    target.addEventListener('mouseenter', () => {
+                        cursorRing.classList.add('cursor-expanded');
+                    });
+                    target.addEventListener('mouseleave', () => {
+                        cursorRing.classList.remove('cursor-expanded');
+                        target.style.transform = 'none';
+                    });
+
+                    // Subtle Magnetic Effect
+                    target.addEventListener('mousemove', (e) => {
+                        const rect = target.getBoundingClientRect();
+                        const relX = e.clientX - rect.left - rect.width / 2;
+                        const relY = e.clientY - rect.top - rect.height / 2;
+                        target.style.transform = `translate3d(${relX * 0.12}px, ${relY * 0.12}px, 0)`;
+                    });
+                });
+
+                document.addEventListener('mouseleave', () => {
+                    cursorDot.style.opacity = '0';
+                    cursorRing.style.opacity = '0';
+                });
+            }
+
+            // 5. Header Dynamic Backdrop on Scroll
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header?.classList.add('py-3', 'shadow-xl');
+                    header?.classList.remove('py-5');
+                } else {
+                    header?.classList.add('py-5');
+                    header?.classList.remove('py-3', 'shadow-xl');
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
